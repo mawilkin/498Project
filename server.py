@@ -4,11 +4,12 @@ import urllib
 import BaseHTTPServer
 from SimpleHTTPServer import SimpleHTTPRequestHandler
 
+
 class ServerHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
     	# converts html query to string
-    	query = urllib.unquote_plus(self.path[18:]) 
+    	query = urllib.unquote_plus(self.path[19:]) 
     	print query
         SimpleHTTPRequestHandler.do_GET(self)
 
