@@ -1,10 +1,9 @@
 #TEAM #SENTIMENT
 #
 
-# may require running:
-# cd requests/kennethreitz-requests-b8128d6/
-# python setup.py install
-#
+# may require:
+# pip install requests
+# pip install beautifulsoup4
 
 import urllib
 import BaseHTTPServer
