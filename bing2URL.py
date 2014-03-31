@@ -17,8 +17,13 @@ import sys
 def main():
     #query = "sunshine"
     query = sys.argv[1]
-    bing_search(query, 'Web')
-    #bing_search(query, 'News')
+    webList = bing_search(query, 'Web')
+    imageList = bing_search(query, 'Image')
+    
+    print imageList[0]
+    
+    for i in webList:
+     print i
  
 def bing_search(query, search_type):
     #search_type: Web, Image, News, Video
@@ -42,9 +47,16 @@ def bing_search(query, search_type):
             # if z == 'Url':
                 # print i[z]
     lst = list()
-    for x in range(len(result_list)):
-        lst.append(result_list[x]['Url'])
-    return lst
+    
+    if search_type == 'Web':
+     for x in range(len(result_list)):
+      lst.append(result_list[x]['Url'])
+     return lst
+     
+    elif search_type == 'Image':
+     for x in range(len(result_list)):
+      lst.append(result_list[x]['MediaUrl'])
+     return lst 
  
 if __name__ == "__main__":
     main()
