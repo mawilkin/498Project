@@ -8,16 +8,23 @@ alchemyapi = AlchemyAPI()
 
 def giveMeSentiment(demo_text):
 	returnDic = {}
+	'''
 	print ('')
 	print ('')
 
 	print('Processing text: ', demo_text)
 	print('')
-
+	'''
 	response = alchemyapi.keywords('text',demo_text, { 'sentiment':1 })
 	returnDic['keywords'] = response
+	returnDic['number'] = 0
 	if response['status'] == 'OK':
 		for keyword in response['keywords']:
+			if(returnDic['number']<keyword['relevance']):
+				returnDic['swag'] = keyword['text'].encode('utf-8')
+				returnDic['number'] = keyword['relevance']
+
+			'''
 			print('text: ', keyword['text'].encode('utf-8'))
 			print('relevance: ', keyword['relevance'])
 			print('sentiment: ', keyword['sentiment']['type'])
@@ -29,9 +36,10 @@ def giveMeSentiment(demo_text):
 
 
 	print('')
-
+	'''
 	response = alchemyapi.sentiment('text',demo_text)
 	returnDic['sentiment'] = response
+	'''
 	if response['status'] == 'OK':
 
 		print('')
@@ -46,5 +54,6 @@ def giveMeSentiment(demo_text):
 		# return response['docSentiment']['score']
 	# else:
 		# return response['statusInfo']
+	'''
 
 	return returnDic
