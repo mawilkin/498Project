@@ -29,4 +29,8 @@ def findstuffaboutquery(query):
   returnDic = {}
   returnDic["emotion"]=domEmotion
   returnDic["focus"]=mainfocusWord
+  print domEmotion
+  print mainfocusWord
   return returnDic
+
+findstuffaboutquery("I am sad that today is the second to last welcome wednesday")
