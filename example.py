@@ -18,6 +18,7 @@ def giveMeSentiment(demo_text):
 	response = alchemyapi.keywords('text',demo_text, { 'sentiment':1 })
 	returnDic['keywords'] = response
 	returnDic['number'] = 0
+	returnDic['swag'] = 'no clear topic'
 	if response['status'] == 'OK':
 		for keyword in response['keywords']:
 			if(returnDic['number']<keyword['relevance']):

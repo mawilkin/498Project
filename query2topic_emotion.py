@@ -7,7 +7,7 @@ emotionlist = ['anger_loathing', 'enjoyment_elation',
   'amusement_excitement', 'contentment_gratitude', 'humiliation_shame',
   'fear_uneasiness', 'affection_friendliness', 'sadness_grief']
 
-query = "I love you so much patrick"
+query = "Justin Bieber is an excellent role model"
 
 dic = lymbix.tonalize(query)
 sentiment = example.giveMeSentiment(query)
@@ -18,15 +18,14 @@ sentimentPosOrNeg = sentiment['sentiment']['docSentiment']['type']
 sentimentScore = sentiment['sentiment']['docSentiment']['score']
 mainfocusWord = sentiment['swag']
 
-high = 0
+high = float(0)
 domEmotion = emotion
 for emotion in emotionlist:
-  num = dic[emotion]
-  print math.fabs(num)
+  num = float(dic[emotion])
+  print num
   if math.fabs(num)>high:
     high = math.fabs(num)
     domEmotion = emotion
-
 
 print domEmotion
 print mainfocusWord
