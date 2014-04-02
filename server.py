@@ -5,6 +5,7 @@ from linksToCorpus import URLtoCorpus
 from example import giveMeSentiment
 from tweetsentiments import tweetsentiments
 import json
+from query2topic_emotion import findstuffaboutquery
 from twitterizer import twitterizer
 from pygoogle import pygoogle
 
@@ -13,9 +14,12 @@ twit = twitterizer()
 class Handler(SimpleHTTPRequestHandler):
 
     def do_POST(self):
-        # handle a request by reading in the string then returning the reverse of it     
+        # handle a request by reading in the string then returning the reverse of it
         s = self.rfile.read( int(self.headers.getheader('content-length')) )
         print s
+        returnDic = findstuffaboutquery(s)
+        s= returnDic["focus"]
+        emotion = returnDic["emotion"]
         dic = json.loads(s)
         if dic['which'] == 'feelings':
             lst = list()
@@ -48,7 +52,7 @@ class Handler(SimpleHTTPRequestHandler):
 HTTPServer( ("", 3000), Handler).serve_forever()
 
 # corpus = URLtoCorpus()
-# query = 'justin bieber' 
+# query = 'justin bieber'
 # links = bing_search(query,'Web')
 # corpus.numToRead = len(links)
 # corpus.openURLsfromlist(links)
