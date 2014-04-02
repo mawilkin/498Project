@@ -17,23 +17,25 @@ class Handler(SimpleHTTPRequestHandler):
         # handle a request by reading in the string then returning the reverse of it
         s = self.rfile.read( int(self.headers.getheader('content-length')) )
         print s
-        returnDic = findstuffaboutquery(s)
-        s= returnDic["focus"]
-        emotion = returnDic["emotion"]
         dic = json.loads(s)
+        returnDic = findstuffaboutquery( dic['query'] )
+        s = returnDic["focus"]
+        emotion = returnDic["emotion"]
         if dic['which'] == 'feelings':
             lst = list()
             lst.append(dic['query'])
             querySentiment = tweetsentiments( lst )
             queryEmotion = querySentiment.findMax()
-            print queryEmotion
-            self.wfile.write( queryEmotion )
+            returnStr = 'It seems you feel ' + emotion + ' about ' + s
+            self.wfile.write( returnStr )
         elif dic['which'] == 'twitter':
-            tweets = twit.top50Tweets( dic['query'].split() )
+            lst = list()
+            lst.append(s)
+            tweets = twit.top50Tweets( lst )
             tweetSentiment = tweetsentiments( tweets )
             tweetEmotion = tweetSentiment.findMax()
             print tweetEmotion
-            tweetEmotion = 'Twitter feels ' + str(tweetEmotion) + ' about __subject__'
+            tweetEmotion = 'Twitter feels ' + str(tweetEmotion) + ' about ' + s
             self.wfile.write( tweetEmotion )
         elif dic['which'] == 'bing':
             corpus = URLtoCorpus()
@@ -44,10 +46,6 @@ class Handler(SimpleHTTPRequestHandler):
             result = giveMeSentiment(s)
             print result
             self.wfile.write( result )
-        elif dic['which'] == 'google':
-            g = pygoogle( dic['query'] )
-            urls = g.get_urls()
-            self.wfile.write( urls )
 
 HTTPServer( ("", 3000), Handler).serve_forever()
 
