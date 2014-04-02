@@ -1,10 +1,37 @@
-<!-- TEAM #SENTIMENT -->
 <html>
-	<body>
-		<h1>Input a query:</h1>
-		<form action='/output.html'>
-			<input type='text' name='query'/>
-			<input type='submit' value='submit'/>
-		</form>
-	</body>
+    <head>
+        <title>How does the internet feel?</title>
+        <link rel='stylesheet' href='/webfiles/style.css'>
+    </head>
+    <body>
+        <header id='header'>    
+            <h1>TEAM #SENTIMENT Opinion Engine</h1>
+        </header>
+        <div id='intro'>
+            <h1>How it Works</h1><br>
+            <h3>You type how you feel about something and we'll tell you what the internet thinks and whether it agrees with you or not</h3>
+            <br>
+        </div>
+        <br><br>
+        <div id='input'>
+            <br>
+            <form name='search' id='search' action='javascript:feelings();'>
+                <input type='text' name='query' id='query' placeholder='Your thoughts?'><br>
+                <input type='submit' value='Go!' id='button'>
+            </form>
+            <br>
+        </div>
+        <br>
+        <span id='feelings'>
+            <img src='spinner.gif' height='50px' width='50px'>
+        </span>
+        <div id='twitter'>
+            <p>twitter</p>
+        </div>
+        <div id='bing'>
+            <p>bing</p>
+        </div>
+    </body>
 </html>
+<script src='/webfiles/jquery.min.js'></script>
+<script src='/webfiles/ajax.js'></script>

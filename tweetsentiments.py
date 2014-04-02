@@ -3,11 +3,11 @@ from lymbix import Lymbix
 lymbix = Lymbix('dfcad1488854c47dd26f30d3eb424c77e5606801')
 
 
-samplelist = ['I wish Steve Harvey was my father and guardian angel', 
-			'Greek yogurt is so so excellent',
-			'Word on the street is that you are obsessed with rodents',
-			'OMG I LOVE GREEK YOGURT',
-			'I am blessed to know you as a person']
+# samplelist = ['I wish Steve Harvey was my father and guardian angel', 
+# 			'Greek yogurt is so so excellent',
+# 			'Word on the street is that you are obsessed with rodents',
+# 			'OMG I LOVE GREEK YOGURT',
+# 			'I am blessed to know you as a person']
 
 class tweetsentiments:
 

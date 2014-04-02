@@ -1,0 +1,76 @@
+body {
+    text-align: center;
+    margin: 0;
+    font-family: helvetica neue;
+}
+
+#intro h1 {
+    margin-top:2.5%;
+}
+
+#intro h3 {
+    width: 35%;
+    margin: auto;
+}
+
+#header {
+    height: 7.5%;
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+#intro {
+    border-left: 15px solid #FFEF48;
+}
+
+#search {
+    margin-top: 5%;
+}
+
+#input {
+    border-left: 15px solid #7E0FFF;
+}
+
+#query {
+    width: 50%;
+    height: 40px;
+    text-align: center;
+}
+
+#button {
+    margin-top:2.5%;
+    color: #FFFFFF;
+    width: 80px;
+    height: 40px;
+    font-size: 150%;
+}
+
+#button {
+    border:1px solid #8a66f4; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-size:12px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
+    background-color: #7E0FFF; background-image: -webkit-gradient(linear, left top, left bottom, from(#7E0FFF), to(#9174ed));
+    background-image: -webkit-linear-gradient(top, #7E0FFF, #9174ed);
+    background-image: -moz-linear-gradient(top, #7E0FFF, #9174ed);
+    background-image: -ms-linear-gradient(top, #7E0FFF, #9174ed);
+    background-image: -o-linear-gradient(top, #7E0FFF, #9174ed);
+    background-image: linear-gradient(to bottom, #7E0FFF, #9174ed);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#b29af8, endColorstr=#9174ed);
+}
+
+#button:hover {
+    border:1px solid #693bf1;
+    background-color: #8e6af5; background-image: -webkit-gradient(linear, left top, left bottom, from(#8e6af5), to(#6d47e7));
+    background-image: -webkit-linear-gradient(top, #8e6af5, #6d47e7);
+    background-image: -moz-linear-gradient(top, #8e6af5, #6d47e7);
+    background-image: -ms-linear-gradient(top, #8e6af5, #6d47e7);
+    background-image: -o-linear-gradient(top, #8e6af5, #6d47e7);
+    background-image: linear-gradient(to bottom, #8e6af5, #6d47e7);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#8e6af5, endColorstr=#6d47e7);
+}
+
+#feelings {
+    text-align: center;
+    opacity: 0;
+}
+
+#twitter {
+    opacity: 1;
+    border-left: 15px solid #55ACEE;
+}
