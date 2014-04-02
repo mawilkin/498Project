@@ -6,6 +6,7 @@ from example import giveMeSentiment
 from tweetsentiments import tweetsentiments
 import json
 from twitterizer import twitterizer
+from pygoogle import pygoogle
 
 twit = twitterizer()
 
@@ -39,6 +40,10 @@ class Handler(SimpleHTTPRequestHandler):
             result = giveMeSentiment(s)
             print result
             self.wfile.write( result )
+        elif dic['which'] == 'google':
+            g = pygoogle( dic['query'] )
+            urls = g.get_urls()
+            self.wfile.write( urls )
 
 HTTPServer( ("", 3000), Handler).serve_forever()
 
