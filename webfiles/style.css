@@ -67,10 +67,8 @@ body {
 
 #feelings {
     text-align: center;
-    opacity: 0;
 }
 
 #twitter {
-    opacity: 1;
     border-left: 15px solid #55ACEE;
 }

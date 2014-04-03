@@ -7,66 +7,23 @@ function ajax(url, data, callback) {
             callback(req);
         }
     }
-    req.send(JSON.stringify(data));
+    req.send(data);
 }
 
 function feelings() {
     twitter();
-    var data = {
-        query: document.search.query.value,
-        which: 'feelings' 
-    }        
-    $('#feelings').animate({
-        opacity: 1
-    }, 2000);    
-    ajax('input.html', data, function (req) {
-        $('#feelings').animate({
-            opacity:0
-        }, 1000, function() {
-            document.getElementById('feelings').innerHTML = req.responseText;
-            $('#feelings').animate({
-                opacity:1
-            }, 1000);
-        });
+    bing();
+    ajax('/feelings', document.search.query.value, function (req) {
+        document.getElementById('feelings').innerHTML = req.responseText;
     });
 }
-
-function twitter() {
-    var data = {
-        query: document.search.query.value,
-        which: 'twitter' 
-    }       
-    $('#twitter').animate({
-        opacity: 1
-    }, 2000);
-    ajax('input.html', data, function (req) {
-        $('#twitter').animate({
-            opacity:0
-        }, 1000, function() {
-            document.getElementById('twitter').innerHTML = req.responseText;
-            $('#twitter').animate({
-                opacity:1
-            }, 1000);
-        });
+function twitter() {    
+    ajax('/twitter', document.search.query.value, function (req) {
+        document.getElementById('twitter').innerHTML = req.responseText;
     });
 }
-
-function bing() {
-    var data = {
-        query: document.search.query.value,
-        which: 'bing' 
-    }       
-    $('#bing').animate({
-        opacity: 1
-    }, 2000);
-    ajax('input.html', data, function (req) {
-        $('#bing').animate({
-            opacity:0
-        }, 1000, function() {
-            document.getElementById('bing').innerHTML = req.responseText;
-            $('#bing').animate({
-                opacity:1
-            }, 1000);
-        });
+function bing() {    
+    ajax('/bing', document.search.query.value, function (req) {
+        document.getElementById('bing').innerHTML = req.responseText;
     });
 }
