@@ -8,7 +8,7 @@ def findstuffaboutquery(query):
     'amusement_excitement', 'contentment_gratitude', 'humiliation_shame',
     'fear_uneasiness', 'affection_friendliness', 'sadness_grief']
 
-  
+
 
   dic = lymbix.tonalize(query)
   sentiment = example.giveMeSentiment(query)
@@ -23,11 +23,14 @@ def findstuffaboutquery(query):
   domEmotion = emotion
   for emotion in emotionlist:
     num = float(dic[emotion])
-    print num
     if math.fabs(num)>high:
       high = math.fabs(num)
       domEmotion = emotion
   returnDic = {}
   returnDic["emotion"]=domEmotion
   returnDic["focus"]=mainfocusWord
+  print domEmotion
+  print mainfocusWord
   return returnDic
+
+findstuffaboutquery("I am sad that today is the second to last welcome wednesday")
