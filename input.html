@@ -4,8 +4,10 @@
         <link rel='stylesheet' href='webfiles/style.css'>
     </head>
     <body>
-        <header id='header'>    
-            <h1>TEAM #SENTIMENT Opinion Engine</h1>
+        <header id='header'>  
+            <p align= "left">
+                <img id="logo" src="webfiles/OpinionEngine.png" />
+            </p>
         </header>
         <div id='intro'>
             <h1>How it Works</h1><br>
@@ -14,7 +16,7 @@
         </div>
         <br><br>
         <div id='input'>
-            <br>
+            <h1 id="searchLabel">Search</h1>
             <form name='search' id='search' action='javascript:feelings();'>
                 <input type='text' name='query' id='query' placeholder='Your thoughts?' required><br>
                 <input type='submit' value='Go!' id='button'>
@@ -25,11 +27,26 @@
         <span id='feelings'>
             <img src='spinner.gif' height='50px' width='50px'>
         </span>
+        <div id="results">
+            <h3 style="margin-bottom: 2%">It looks like you "some emotion" <span id="queryObject">Pizza</span></h3>
+        </div>
         <div id='twitter'>
-            <p>twitter</p>
+            <h3 style="float: right; margin-right: 32%">Twitter is "some emotion" with <span id="queryObject">Pizza</span></h3>
+             <div id="tweetA">Positive Tweet</div>
+             <div id="tweetB">Negative Tweet</div>
+            <p align="left">
+                <img id="resultLogo" src="webfiles/TwitterLogo.png"/>
+            </p>
         </div>
         <div id='bing'>
-            <p>bing</p>
+            <h3>Bing gives <span id="queryObject">Pizza</span> a thumbs "something"</h3>
+            <img style="float: right; margin-right: 45%; margin-top: 2%; max-width: 200px; max-height: 200px" src="webfiles/Facebook-thumbs-up.png"/>
+            <p align="left">
+                <img id="resultLogo" src="webfiles/BingLogo.png" style="margin-top: -1px"/>
+            </p>
+        </div>
+        <div id="header">
+            <p align="left" style="font-family: Gill Sans, Segoe UI Light, Arial; font-size: 18px;">Powered by Team #Sentiment</p>
         </div>
     </body>
 </html>
