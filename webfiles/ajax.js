@@ -27,10 +27,15 @@ function twitter() {
         document.getElementById('twitterEmotion').innerHTML = obj['emotion'];
     });
 }
-function bing() {    
+function bing() { 
     ajax('/bing', document.search.query.value, function (req) {
         var obj = JSON.parse(req.responseText);
-        console.log(obj);
-        document.getElementById('bingEmotion').innerHTML = req.responseText;
+        if ( obj['number'] >= 0 ) {
+            document.getElementById('thumbs').src = 'webfiles/Facebook-thumbs-up.png';
+            document.getElementById('thumbs').innerHTML = 'up';
+        } else {
+            document.getElementById('thumbs').src = 'webfiles/Facebook-thumbs-down.png';
+            document.getElementById('thumbs').innerHTML = 'down';
+        }
     });
 }
