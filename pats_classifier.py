@@ -7,17 +7,20 @@ import re
 import sys
 import os
 import operator
-import porter
 import math
 import cProfile
 import numpy
+from sentstotweets import sentstotweets
 
 
 
 
 def spacePeriod(input):
-    pattern = re.sub("\. "," . ",input)
-    return pattern
+    final_string = ''
+    for tweet in input:
+      pattern = re.sub("\. "," . ",tweet)
+      final_string = final_string + pattern
+    return final_string
 
 def spaceCommaApos(input):
     pattern = re.sub("\,"," , ",input)
@@ -33,6 +36,7 @@ def removePunc(input):
     pattern = re.sub("\$"," ",pattern)
     pattern = re.sub("\("," ",pattern)
     pattern = re.sub("\)"," ",pattern)
+    pattern = re.sub("\#"," ",pattern)
     pattern = re.sub("\*"," ",pattern)
     pattern = re.sub("\/"," ",pattern)
     pattern = re.sub("\="," ",pattern)
@@ -106,10 +110,19 @@ def prepare(dic,totalnum,numwords,x):
 
 
 
-emotionlist = ['anger_loathing', 'enjoyment_elation',
-    'amusement_excitement', 'contentment_gratitude', 'humiliation_shame',
-    'fear_uneasiness', 'affection_friendliness', 'sadness_grief']
-bangerz = "I seriously dislike kitchens"
+emotionlist = ['#love OR #affection OR #devotion',
+'#enjoy OR #elation',
+'#amused OR #excited OR #firedup',
+'#content OR #grateful',
+'#sad OR #grief OR #heartbroken',
+'#angry OR #loathe',
+'#fear OR #scared OR #uneasy',
+'#humiliating OR #embarrassing OR #shame']
+
+tweets = sentstotweets()
+inputsteeeeez = tweets.top50Tweets()
+
+bangerz = "I am so embarassed because I ripped my pants"
 readfile = spacePeriod(bangerz)
 readfile = spaceCommaApos(readfile)
 readfile = removePunc(readfile)
@@ -124,7 +137,8 @@ totalwords = 0
 for words in emotionlist:
   tempdic = {}
   numwords=0
-  training = "This will be the list I can promise you that swag"
+
+  training = inputsteeeeez[words]
   readfile = spacePeriod(training)
   readfile = spaceCommaApos(readfile)
   readfile = removePunc(readfile)
@@ -136,7 +150,7 @@ for words in emotionlist:
 for words in emotionlist:
   tempdic = {}
   numwords=0
-  training = "This will be the list I can promise you that swag"
+  training = inputsteeeeez[words]
   readfile = spacePeriod(training)
   readfile = spaceCommaApos(readfile)
   readfile = removePunc(readfile)
@@ -153,58 +167,12 @@ for word in emotionlist:
   prob = calcProb(complete[word],queryList,float(1)/len(emotionlist),len(total),complete[word]['numberofwordsinthisclass'])
   problist.append(prob)
 
+print max(problist)
 
+num = 0
+for thing in emotionlist:
 
+  if (max(problist)==problist[num]):
+    print thing
 
-
-
-
-
-'''
-
-
-numtw=0
-numlw=0
-totalwords=0
-happy = {}
-sad = {}
-total = {}
-
-
-words = "I love happy peace woo like"
-readfile = spacePeriod(words)
-readfile = spaceCommaApos(readfile)
-readfile = removePunc(readfile)
-readfile = removeStopWords(readfile)
-#readfile = stem(readfile)
-#note in read me about stemming vs non
-test_set = readfile.split()
-numlw = populate(happy,test_set,numlw)
-totalwords = populate(total,test_set,totalwords)
-
-
-words = "I hate sad worry dislike"
-readfile = spacePeriod(words)
-readfile = spaceCommaApos(readfile)
-readfile = removePunc(readfile)
-readfile = removeStopWords(readfile)
-#readfile = stem(readfile)
-#note in read me about stemming vs non
-test_set = readfile.split()
-numtw = populate(sad,test_set,numtw)
-totalwords = populate(total,test_set,totalwords)
-
-
-prepare(sad,totalwords,len(total),numtw)
-prepare(happy,totalwords,len(total),numlw)
-
-sadprob = calcProb(sad,queryList,.5,len(total),numtw)
-happyprob = calcProb(happy,queryList,.5,len(total),numlw)
-
-if (sadprob>happyprob):
-  print "SAD"
-else:
-  print "HAPPY"
-
-
-'''
+  num+=1
