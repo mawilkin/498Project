@@ -13,31 +13,32 @@ twit = twitterizer()
 # handle first response here
 # return string (or otherwise) 
 def feelings(s):
+    print 'feeling module'
     lst = list()
-    lst.append(dic['query'])
+    lst.append(s)
     querySentiment = tweetsentiments( lst )
     queryEmotion = querySentiment.findMax()
-    returnStr = 'It seems you feel ' + emotion + ' about ' + s
-    return s
+    returnStr = 'It seems you feel ' + str(queryEmotion) + ' about ' + s
+    return returnStr
 
 def twitter(s):
+    print 'twitter module'
     lst = list()
     lst.append(s)
     tweets = twit.top50Tweets( lst )
     tweetSentiment = tweetsentiments( tweets )
     tweetEmotion = tweetSentiment.findMax()
-    print tweetEmotion
-    tweetEmotion = 'Twitter feels ' + str(tweetEmotion) + ' about ' + s
-    return s
+    return tweetEmotion
 
 def bing(s): 
+    print 'bing module'
     corpus = URLtoCorpus()
-    links = bing_search( dic['query'] ,'Web')
+    links = bing_search( s ,'Web')
     corpus.numToRead = len(links)
     corpus.openURLsfromlist(links)
     s = corpus.wordsToString()
     result = giveMeSentiment(s)
-    return s
+    return result
 
 
 class Handler(SimpleHTTPRequestHandler):
