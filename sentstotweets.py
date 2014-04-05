@@ -442,6 +442,6 @@ class sentstotweets:
 
 
 #usage
-tweets = sentstotweets()
-dic = tweets.top50Tweets()
-print dic['#love OR #affection OR #devotion']# (maps to list of tweets with #happy or #joy)
+#tweets = sentstotweets()
+#dic = tweets.top50Tweets()
+#print dic['#love OR #affection OR #devotion']# (maps to list of tweets with #happy or #joy)
