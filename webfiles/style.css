@@ -70,6 +70,7 @@ h3 {
  margin-left: -70%;
  margin-right: auto;
  margin-top: 2%;
+ border-left: 15px solid #FFFFFF;
 }
 
 #input {
@@ -117,7 +118,7 @@ h3 {
     margin-left: auto;
     margin-top: 4%;
     background-color: gray;
-    height: 150px;
+    height: 16.75%;
     width: 25%;
     border-radius: 20px;
 }
@@ -128,7 +129,7 @@ h3 {
     margin-left: auto;
     margin-top: -8.75%;
     background-color: gray;
-    height: 150px;
+    height: 16.75%;
     width: 25%;
     border-radius: 20px;
 }
