@@ -16,7 +16,6 @@ def findstuffaboutquery(query):
   clarity =  dic ["clarity"]
 
   sentimentPosOrNeg = sentiment['sentiment']['docSentiment']['type']
-  sentimentScore = sentiment['sentiment']['docSentiment']['score']
   mainfocusWord = sentiment['swag']
 
   high = float(0)
@@ -33,4 +32,4 @@ def findstuffaboutquery(query):
   print mainfocusWord
   return returnDic
 
-bang = findstuffaboutquery("I really love Airplanes")
+bang = findstuffaboutquery("I really just dont like spiders. They are creepy and slimey.")
