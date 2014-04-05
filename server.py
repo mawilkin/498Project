@@ -1,30 +1,36 @@
 from BaseHTTPServer import HTTPServer
 from SimpleHTTPServer import SimpleHTTPRequestHandler
+from SocketServer import ThreadingMixIn
 from bing2URL import bing_search
 from linksToCorpus import URLtoCorpus
 from example import giveMeSentiment
 from tweetsentiments import tweetsentiments
-import json
 from query2topic_emotion import findstuffaboutquery
 from twitterizer import twitterizer
-from pygoogle import pygoogle
 
 twit = twitterizer()
 
+# handle first response here
+# return string (or otherwise) 
+def feelings(s):
+    return s
+
+def twitter(s):
+    return s
+
+def bing(s): 
+    return s
+
+
 class Handler(SimpleHTTPRequestHandler):
-
     def do_POST(self):
-        # handle a request by reading in the string then returning the reverse of it
         s = self.rfile.read( int(self.headers.getheader('content-length')) )
-        print s
         if self.path == '/feelings':
-            self.wfile.write( 'yolo' )
+            self.wfile.write( feelings(s) )
         elif self.path == '/twitter':
-            self.wfile.write( 'dolo' )
+            self.wfile.write( twitter(s) )
         elif self.path == '/bing':
-            self.wfile.write( 'dev' )
-
- 
-HTTPServer( ("", 3000), Handler).serve_forever()
-
-#styling to use all data from tweet: ie show favorites and retweets
+            self.wfile.write( bing(s) )
+class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
+    """Handle requests in a separate thread."""
+ThreadedHTTPServer(('0.0.0.0', 3000), Handler).serve_forever()
