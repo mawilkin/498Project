@@ -67,7 +67,7 @@ h3 {
 }
 
 #results {
- margin-left: -70%;
+ margin-left: auto;
  margin-right: auto;
  margin-top: 2%;
  border-left: 15px solid #FFFFFF;
