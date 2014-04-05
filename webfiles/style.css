@@ -42,7 +42,7 @@ h3 {
     margin: auto;
     font-family:  "Segoe UI Light", "Gill Sans Light", "Arial";
     font-weight: 8;
-    font-size: 19px;
+    font-size: 21px;
     color: #6A6BCE;
 }
 
@@ -148,4 +148,14 @@ h3 {
 #bing {
     border-left: 15px solid #FEBA08;
     margin-bottom: 2%
+}
+
+#firstEmotion {
+    color: #2F3080;
+    font-size: 25px;
+}
+
+#twitterEmotion {
+    color: #2F3080;
+    font-size: 25px;
 }
