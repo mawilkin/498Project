@@ -398,7 +398,7 @@ class TwitterSearch(object):
             return self.__response['content']['statuses'][self._nextTweet-1]
         raise StopIteration
 
-class twitterizer:
+class sentstotweets:
 
     def __init__(self):
         self.ts = TwitterSearch(
@@ -413,7 +413,7 @@ class twitterizer:
             # sentiment list contains synonyms, return list only indexes to one sentiment?
             sentimentList = ['#love OR #affection OR #devotion', '#enjoy OR #elation', 
                                 '#amused OR #excited OR #firedup', 
-                                '#content OR #grateful', '#sad OR #grief OR #heartbroken,
+                                '#content OR #grateful', '#sad OR #grief OR #heartbroken',
                                 '#angry OR #loathe', '#fear OR #scared OR #uneasy',
                                 '#humiliating OR #embarrassing OR #shame']
 
@@ -442,6 +442,6 @@ class twitterizer:
 
 
 #usage
-#tweets = twitterizer()
-#dic = tweets.top50Tweets()
-#print dic['#happy OR #joy'] (maps to list of tweets with #happy or #joy)
+tweets = sentstotweets()
+dic = tweets.top50Tweets()
+print dic['#love OR #affection OR #devotion']# (maps to list of tweets with #happy or #joy)
