@@ -14,16 +14,23 @@ function feelings() {
     twitter();
     bing();
     ajax('/feelings', document.search.query.value, function (req) {
-        document.getElementById('firstEmotion').innerHTML = req.responseText;
+        var obj = JSON.parse(req.responseText);
+        console.log(obj);
+        document.getElementById('firstEmotion').innerHTML = obj['emotion'];
+        document.getElementById('firstObject').innerHTML = obj['focus'];
     });
 }
 function twitter() {    
     ajax('/twitter', document.search.query.value, function (req) {
-        document.getElementById('twitterEmotion').innerHTML = req.responseText;
+        var obj = JSON.parse(req.responseText);
+        console.log(obj);
+        document.getElementById('twitterEmotion').innerHTML = obj['emotion'];
     });
 }
 function bing() {    
     ajax('/bing', document.search.query.value, function (req) {
+        var obj = JSON.parse(req.responseText);
+        console.log(obj);
         document.getElementById('bingEmotion').innerHTML = req.responseText;
     });
 }

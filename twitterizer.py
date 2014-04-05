@@ -408,12 +408,12 @@ class twitterizer:
             access_token_secret = 'ZNl1kFOBofRh4HwCtwKVymhwENvH3mRjpEMklqK3fO5TB'
         )
 
-    def top50Tweets(self,tokenList):
+    def top10Tweets(self,tokenList):
         try:
             tso = TwitterSearchOrder() 
             tso.setKeywords(tokenList) 
             tso.setLanguage('en') 
-            tso.setCount(50)
+            tso.setCount(10)
 
             iterable = self.ts.searchTweetsIterable(tso)
             tweets = iterable.getTweets()

@@ -7,6 +7,7 @@ from example import giveMeSentiment
 from tweetsentiments import tweetsentiments
 from query2topic_emotion import findstuffaboutquery
 from twitterizer import twitterizer
+import json
 
 twit = twitterizer()
 
@@ -14,21 +15,21 @@ twit = twitterizer()
 # return string (or otherwise) 
 def feelings(s):
     print 'feeling module'
-    lst = list()
-    lst.append(s)
-    querySentiment = tweetsentiments( lst )
-    queryEmotion = querySentiment.findMax()
-    returnStr = 'It seems you feel ' + str(queryEmotion) + ' about ' + s
-    return returnStr
+    # res = findstuffaboutquery(s)
+    res = dict()
+    return json.dumps( res )
 
 def twitter(s):
     print 'twitter module'
     lst = list()
     lst.append(s)
-    tweets = twit.top50Tweets( lst )
+    tweets = twit.top10Tweets( lst )
     tweetSentiment = tweetsentiments( tweets )
     tweetEmotion = tweetSentiment.findMax()
-    return tweetEmotion
+    res = dict()
+    res['emotion'] = tweetSentiment.findMax()
+    res['tweets'] = tweets
+    return json.dumps( res )
 
 def bing(s): 
     print 'bing module'
@@ -38,7 +39,7 @@ def bing(s):
     corpus.openURLsfromlist(links)
     s = corpus.wordsToString()
     result = giveMeSentiment(s)
-    return result
+    return json.dumps( result )
 
 
 class Handler(SimpleHTTPRequestHandler):
