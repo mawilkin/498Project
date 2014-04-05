@@ -13,12 +13,30 @@ twit = twitterizer()
 # handle first response here
 # return string (or otherwise) 
 def feelings(s):
+    lst = list()
+    lst.append(dic['query'])
+    querySentiment = tweetsentiments( lst )
+    queryEmotion = querySentiment.findMax()
+    returnStr = 'It seems you feel ' + emotion + ' about ' + s
     return s
 
 def twitter(s):
+    lst = list()
+    lst.append(s)
+    tweets = twit.top50Tweets( lst )
+    tweetSentiment = tweetsentiments( tweets )
+    tweetEmotion = tweetSentiment.findMax()
+    print tweetEmotion
+    tweetEmotion = 'Twitter feels ' + str(tweetEmotion) + ' about ' + s
     return s
 
 def bing(s): 
+    corpus = URLtoCorpus()
+    links = bing_search( dic['query'] ,'Web')
+    corpus.numToRead = len(links)
+    corpus.openURLsfromlist(links)
+    s = corpus.wordsToString()
+    result = giveMeSentiment(s)
     return s
 
 
