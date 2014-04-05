@@ -19,6 +19,14 @@ h1 {
     color: #2F3080;
 }
 
+#twitterData h3 {
+    margin-left: auto;
+    margin-right: auto;
+    display: table-inline;
+    vertical-align: top;
+    margin-bottom: 2%
+}
+
 #logo {
     height: auto;
     width: auto;
@@ -28,12 +36,19 @@ h1 {
     margin-left: 10px;
 }
 
+#resultImage {
+    margin-bottom: 2%;"
+    max-width: 35%;
+    max-height: 35%;
+}
+
 #resultLogo {
-     height: auto;
+    /*display: inline-table;*/
+    height: auto;
     width: auto;
     max-width: 220px;
     max-height: 220px; 
-    margin-top: 5%;
+    margin-top: -10%;
     margin-left: 25px;
 }
 
@@ -70,11 +85,12 @@ h3 {
  margin-left: auto;
  margin-right: auto;
  margin-top: 2%;
- border-left: 15px solid #FFFFFF;
+ border-left: 15px solid #3E3f9A;
+ background-color: #3E3f9A;
 }
 
 #input {
-    border-left: 15px solid #3E3F9A;
+    border-left: 15px solid #FFFFFF;
 }
 
 #query {
@@ -113,7 +129,7 @@ h3 {
     background-image: linear-gradient(to bottom, #7E0FFF, #9174ed);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#7E0FFF, endColorstr=#9174ed);
 }
 
-#tweetA {
+/*#tweetA {
     float: right;
     margin-right: 55%;
     margin-left: auto;
@@ -122,13 +138,24 @@ h3 {
     height: 16.75%;
     width: 25%;
     border-radius: 20px;
+}*/
+
+#tweetA {
+    background-color: #000000;
+    display: inline-table;
+    vertical-align: middle;
+    background-color: gray;
+    height: 16.75%;
+    width: 25%;
+    border-radius: 20px;
+    margin-left: 10%;
 }
 
 #tweetB {
+    display: inline-table;
     float: right;
     margin-right: 20%;
     margin-left: auto;
-    margin-top: -8.75%;
     background-color: gray;
     height: 16.75%;
     width: 25%;
@@ -141,8 +168,9 @@ h3 {
 
 #twitter {
     border-left: 15px solid #55ACEE;
-    margin-bottom:  5%;
+    margin-bottom: 5%;
     margin-top: 2%;
+   /* display: table;*/
 }
 
 #bing {
@@ -151,11 +179,12 @@ h3 {
 }
 
 #firstEmotion {
-    color: #2F3080;
+    color: white;
     font-size: 25px;
 }
 
 #twitterEmotion {
     color: #2F3080;
     font-size: 25px;
+    vertical-align: top;
 }
