@@ -127,13 +127,7 @@ emotionlist = ['#love OR #affection OR #devotion',
 tweets = sentstotweets()
 inputsteeeeez = tweets.top50Tweets()
 
-bangerz = "I am so embarassed because I ripped my pants"
 
-readfile = removePunc(bangerz)
-readfile = removeStopWords(readfile)
-#readfile = stem(readfile)
-#note in read me about stemming vs non
-queryList = readfile.split()
 
 complete = {}
 total = {}
@@ -143,7 +137,6 @@ for words in emotionlist:
   numwords=0
 
   training = inputsteeeeez[words]   # training is list of tweets for each emotion
-
   readfile = removePunc(str(training))
   readfile = removeStopWords(readfile)
 
