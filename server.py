@@ -10,6 +10,7 @@ from twitterizer import twitterizer
 from pygoogle import pygoogle
 import json
 from time import sleep
+from emotionClass import getEmotion
 
 twit = twitterizer()
 
@@ -20,7 +21,7 @@ def feelings(s):
     print 'feeling module'
     res = dict()
     res['focus'] = giveMeSentiment(s)['swag']
-    res['emotion'] = 'love'
+    res['emotion'] = getEmotion(s)
     res['image'] = bing_search( res['focus'] ,'Image')
     return res
 
@@ -28,7 +29,7 @@ def twitter(s):
     print 'twitter module'
     res = dict()
     tweets = twit.top10Tweets( [s] )
-    res['emotion'] = 'love'
+    res['emotion'] = getEmotion(s)
     res['tweets'] = tweets
     return res
 
