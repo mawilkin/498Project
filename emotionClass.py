@@ -117,71 +117,61 @@ def prepare(dic,totalnum,numwords,x):
       dic[key]=first
 
 
+def getEmotion(query):
+  queryList = query.split()
+  emotionlist = ['#love OR #affection OR #devotion',
+  '#enjoy OR #elation',
+  '#amused OR #excited OR #firedup',
+  '#content OR #grateful',
+  '#sad OR #grief OR #heartbroken',
+  '#angry OR #loathe',
+  '#fear OR #scared OR #uneasy',
+  '#humiliating OR #embarrassing OR #shame']
+  complete = {}
+  total = {}
+  totalwords = 0
+  count = 0
+  for words in emotionlist:
+    tempdic = {}
+    numwords=0
+    training = emotionlist[count]
+    count +=1
+    test_set = []
+    with open('tweetlists/' + training+".txt") as f:
+        for line in f:
+            test_set = line.split()
+    totalwords = populate(total,test_set,totalwords)
 
-sys.stdout.encoding.encode('utf-8')
-emotionlist = ['#love OR #affection OR #devotion',
-'#enjoy OR #elation',
-'#amused OR #excited OR #firedup',
-'#content OR #grateful',
-'#sad OR #grief OR #heartbroken',
-'#angry OR #loathe',
-'#fear OR #scared OR #uneasy',
-'#humiliating OR #embarrassing OR #shame']
-
-tweets = sentstotweets()
-inputsteeeeez = tweets.top50Tweets()
-
-
-
-complete = {}
-total = {}
-totalwords = 0
-for words in emotionlist:
-  tempdic = {}
-  numwords=0
-
-  training = inputsteeeeez[words]   # training is list of tweets for each emotion
-  readfile = removePunc(str(training))
-  readfile = removeStopWords(readfile)
-
-
-  readfile = readfile.encode('utf-8').strip()
-  test_set = readfile.split()
-  with open('tweetlists/' + words+".txt", "a") as myfile:
-    myfile.seek(0)
-    myfile.write(readfile)
-'''
-  totalwords = populate(total,test_set,totalwords)
-
-
-for words in emotionlist:
-  tempdic = {}
-  numwords=0
-  training = inputsteeeeez[words]
-  readfile = spacePeriod(training)
-  readfile = spaceCommaApos(readfile)
-  readfile = removePunc(readfile)
-  readfile = removeStopWords(readfile)
-  test_set = readfile.split()
-  numwords = populate(tempdic,test_set,numwords)
-  prepare(tempdic,totalwords,len(total),numwords)
-  tempdic['numberofwordsinthisclass']=numwords
-  complete[words] = tempdic
+  count = 0
+  for words in emotionlist:
+    tempdic = {}
+    numwords=0
+    training = emotionlist[count]
+    count+=1
+    readfile = spacePeriod(training)
+    readfile = spaceCommaApos(readfile)
+    readfile = removePunc(readfile)
+    readfile = removeStopWords(readfile)
+    test_set = readfile.split()
+    numwords = populate(tempdic,test_set,numwords)
+    prepare(tempdic,totalwords,len(total),numwords)
+    tempdic['numberofwordsinthisclass']=numwords
+    complete[words] = tempdic
 
 
-problist = []
-for word in emotionlist:
-  prob = calcProb(complete[word],queryList,float(1)/len(emotionlist),len(total),complete[word]['numberofwordsinthisclass'])
-  problist.append(prob)
+  problist = []
+  for word in emotionlist:
+    prob = calcProb(complete[word],queryList,float(1)/len(emotionlist),len(total),complete[word]['numberofwordsinthisclass'])
+    problist.append(prob)
 
-print max(problist)
+  print max(problist)
 
-num = 0
-for thing in emotionlist:
+  num = 0
+  finalemotion = ''
+  for thing in emotionlist:
 
-  if (max(problist)==problist[num]):
-    print thing
+    if (max(problist)==problist[num]):
+      finalemotion = thing
 
-  num+=1
-
-'''
+    num+=1
+  return finalemotion
