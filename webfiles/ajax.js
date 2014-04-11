@@ -11,21 +11,32 @@ function ajax(url, data, callback) {
 }
 
 function feelings() {
-    twitter();
-    bing();
     ajax('/feelings', document.search.query.value, function (obj) {
+        twitter(obj['focus']);
+        bing(obj['focus']);
         document.getElementById('firstEmotion').innerHTML = obj['emotion'];
         document.getElementById('firstObject').innerHTML = obj['focus'];
-        $('.subject').innerHTML = obj['focus'];
+        $('.subject').text(obj['focus']);
+        $('#resultImage').attr('src', obj['image'][0] );
+        $('#results').animate({
+            opacity: '1'
+        },1500);
     });
 }
-function twitter() {    
-    ajax('/twitter', document.search.query.value, function (obj) {
+function twitter(s) {    
+    ajax('/twitter', s, function (obj) {
         document.getElementById('twitterEmotion').innerHTML = obj['emotion'];
+        console.log(obj);
+        obj['tweets'].forEach(function(elt) {
+            $('#tweetA').append('<p>'+elt+'</p>');
+        });
+        $('#twitter').animate({
+            opacity: '1'
+        },1500);
     });
 }
-function bing() { 
-    ajax('/bing', document.search.query.value, function (obj) {
+function bing(s) { 
+    ajax('/bing', s, function (obj) {
         if ( obj['score'] >= 0 ) {
             document.getElementById('thumbs').src = 'webfiles/Facebook-thumbs-up.png';
             document.getElementById('bingSentiment').innerHTML = 'up';
@@ -33,5 +44,12 @@ function bing() {
             document.getElementById('thumbs').src = 'webfiles/Facebook-thumbs-down.png';
             document.getElementById('bingSentiment').innerHTML = 'down';
         }
+        $('#bing').animate({
+            opacity: '1'
+        },1500);
     });
 }
+
+window.onload = function() {
+    console.log('loaded'); 
+};
