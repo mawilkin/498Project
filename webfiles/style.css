@@ -170,12 +170,18 @@ h3 {
     border-left: 15px solid #55ACEE;
     margin-bottom: 5%;
     margin-top: 2%;
+    opacity: 0;
    /* display: table;*/
 }
 
 #bing {
     border-left: 15px solid #FEBA08;
-    margin-bottom: 2%
+    margin-bottom: 2%;
+    opacity: 0;
+}
+
+#results {
+    opacity: 0;
 }
 
 #firstEmotion {
@@ -188,3 +194,4 @@ h3 {
     font-size: 25px;
     vertical-align: top;
 }
+
