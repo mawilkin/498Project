@@ -109,7 +109,7 @@ def prepare(dic,totalnum,numwords,x):
 
 
 
-
+sys.stdout.encoding.encode('utf-8')
 emotionlist = ['#love OR #affection OR #devotion',
 '#enjoy OR #elation',
 '#amused OR #excited OR #firedup',
@@ -143,7 +143,15 @@ for words in emotionlist:
   readfile = spaceCommaApos(readfile)
   readfile = removePunc(readfile)
   readfile = removeStopWords(readfile)
+
+
+  readfile = readfile.encode('utf-8').strip()
   test_set = readfile.split()
+  with open('tweetlists/' + words+".txt", "a") as myfile:
+    myfile.seek(0)
+    myfile.write(readfile)
+
+'''
   totalwords = populate(total,test_set,totalwords)
 
 
@@ -176,3 +184,5 @@ for thing in emotionlist:
     print thing
 
   num+=1
+
+'''
