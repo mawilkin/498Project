@@ -28,22 +28,27 @@ def spaceCommaApos(input):
     return pattern
 
 def removePunc(input):
-    pattern = re.sub("\."," ",input)
-    pattern = re.sub("\,"," ",pattern)
-    pattern = re.sub("\'"," ",pattern)
-    pattern = re.sub("\+"," ",pattern)
-    pattern = re.sub("\?"," ",pattern)
-    pattern = re.sub("\$"," ",pattern)
-    pattern = re.sub("\("," ",pattern)
-    pattern = re.sub("\)"," ",pattern)
-    pattern = re.sub("\#"," ",pattern)
-    pattern = re.sub("\*"," ",pattern)
-    pattern = re.sub("\/"," ",pattern)
-    pattern = re.sub("\="," ",pattern)
-    pattern = re.sub("\-"," ",pattern)
-    pattern = re.sub("\:"," ",pattern)
-    pattern = re.sub("\;"," ",pattern)
-    pattern = re.sub("\""," ",pattern)
+    pattern = re.sub("\@","",input)
+    pattern = re.sub("\!","",pattern)
+    pattern = re.sub("\&","",pattern)
+    pattern = re.sub("\+","",pattern)
+    pattern = re.sub("\?","",pattern)
+    pattern = re.sub("\$","",pattern)
+    pattern = re.sub("\(","",pattern)
+    pattern = re.sub("\)","",pattern)
+    pattern = re.sub("\#","",pattern)
+    pattern = re.sub("\*","",pattern)
+    pattern = re.sub("\/","",pattern)
+    pattern = re.sub("\.","",pattern)
+    pattern = re.sub("\=","",pattern)
+    pattern = re.sub("\-","",pattern)
+    pattern = re.sub("\_","",pattern)
+    pattern = re.sub("\:","",pattern)
+    pattern = re.sub("\;","",pattern)
+    pattern = re.sub("\"","",pattern)
+    pattern = re.sub("\[","",pattern)
+    pattern = re.sub("\]","",pattern)
+    pattern = re.sub(r"\http","",pattern)
     #pattern = re.sub("\\","",pattern)
     return pattern
 
@@ -123,9 +128,8 @@ tweets = sentstotweets()
 inputsteeeeez = tweets.top50Tweets()
 
 bangerz = "I am so embarassed because I ripped my pants"
-readfile = spacePeriod(bangerz)
-readfile = spaceCommaApos(readfile)
-readfile = removePunc(readfile)
+
+readfile = removePunc(bangerz)
 readfile = removeStopWords(readfile)
 #readfile = stem(readfile)
 #note in read me about stemming vs non
@@ -138,10 +142,9 @@ for words in emotionlist:
   tempdic = {}
   numwords=0
 
-  training = inputsteeeeez[words]
-  readfile = spacePeriod(training)
-  readfile = spaceCommaApos(readfile)
-  readfile = removePunc(readfile)
+  training = inputsteeeeez[words]   # training is list of tweets for each emotion
+
+  readfile = removePunc(str(training))
   readfile = removeStopWords(readfile)
 
 
@@ -150,7 +153,6 @@ for words in emotionlist:
   with open('tweetlists/' + words+".txt", "a") as myfile:
     myfile.seek(0)
     myfile.write(readfile)
-
 '''
   totalwords = populate(total,test_set,totalwords)
 
