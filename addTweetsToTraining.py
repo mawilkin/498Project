@@ -12,7 +12,34 @@ import cProfile
 import numpy
 from sentstotweets import sentstotweets
 
-
+def removePunc(input):
+    pattern = re.sub("\@","",input)
+    pattern = re.sub("\!","",pattern)
+    pattern = re.sub("\&","",pattern)
+    pattern = re.sub("\+","",pattern)
+    pattern = re.sub("\?","",pattern)
+    pattern = re.sub("',","",pattern)
+    pattern = re.sub("\'","",pattern)
+    pattern = re.sub("u'","",pattern)
+    pattern = re.sub("\$","",pattern)
+    pattern = re.sub("\(","",pattern)
+    pattern = re.sub("\)","",pattern)
+    pattern = re.sub("\#","",pattern)
+    pattern = re.sub("\*","",pattern)
+    pattern = re.sub("\/","",pattern)
+    pattern = re.sub("\.","",pattern)
+    pattern = re.sub("\,","",pattern)
+    pattern = re.sub("\=","",pattern)
+    pattern = re.sub("\-","",pattern)
+    pattern = re.sub("\_","",pattern)
+    pattern = re.sub("\:","",pattern)
+    pattern = re.sub("\;","",pattern)
+    pattern = re.sub("\"","",pattern)
+    pattern = re.sub("\[","",pattern)
+    pattern = re.sub("\]","",pattern)
+    pattern = re.sub(r"http","",pattern)
+    #pattern = re.sub("\\","",pattern)
+    return pattern
 
 sys.stdout.encoding.encode('utf-8')
 emotionlist = ['#love OR #affection OR #devotion',

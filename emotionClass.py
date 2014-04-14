@@ -155,7 +155,7 @@ def getEmotion(query):
     readfile = spacePeriod(wordsperclass[training])
     readfile = spaceCommaApos(readfile)
     readfile = removePunc(readfile)
-    readfile = removeStopWords(readfile)
+    #readfile = removeStopWords(readfile)
     test_set = readfile.split()
     numwords = populate(tempdic,test_set,numwords)
     prepare(tempdic,totalwords,len(total),numwords)
@@ -176,6 +176,7 @@ def getEmotion(query):
 
     if (max(problist)==problist[num]):
       finalemotion = thing
+      print str(problist[num]) + " " + finalemotion
 
     num+=1
   return finalemotion
