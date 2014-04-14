@@ -165,7 +165,6 @@ def getEmotion(query):
     prob = calcProb(complete[word],queryList,float(1)/len(emotionlist),len(total),complete[word]['numberofwordsinthisclass'])
     problist.append(prob)
 
-  print max(problist)
 
   num = 0
   finalemotion = ''
@@ -173,7 +172,6 @@ def getEmotion(query):
 
     if (max(problist)==problist[num]):
       finalemotion = thing
-      print str(problist[num]) + " " + finalemotion
 
     num+=1
   return finalemotion
