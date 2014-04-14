@@ -62,7 +62,7 @@ def formatOutput(emotion, type):
         elif emotion == '#happy OR #elated':
             return "'re happy about "
         elif emotion == '#amused OR #excited OR #firedup':
-            return "'re fired up about "
+            return "'re excited about "
         elif emotion == '#blessed OR #grateful':
             return "'re grateful for "
         elif emotion == '#sad OR #depressed OR #heartbroken':
@@ -79,7 +79,7 @@ def formatOutput(emotion, type):
         elif emotion == '#happy OR #elated':
             return " is happy with "
         elif emotion == '#amused OR #excited OR #firedup':
-            return " is fired up about "
+            return " is excited about "
         elif emotion == '#blessed OR #grateful':
             return " is grateful for "
         elif emotion == '#sad OR #depressed OR #heartbroken':
