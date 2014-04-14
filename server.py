@@ -3,13 +3,10 @@ from SimpleHTTPServer import SimpleHTTPRequestHandler
 from SocketServer import ThreadingMixIn
 from bing2URL import bing_search
 from linksToCorpus import URLtoCorpus
-from example import giveMeSentiment
+from text2alchemy import giveMeSentiment
 from tweetsentiments import tweetsentiments
-# from query2topic_emotion import findstuffaboutquery
 from twitterizer import twitterizer
-from pygoogle import pygoogle
 import json
-from time import sleep
 from emotionClass import getEmotion
 
 twit = twitterizer()
@@ -20,7 +17,7 @@ twit = twitterizer()
 def feelings(s):
     print 'feeling module'
     res = dict()
-    res['focus'] = giveMeSentiment(s)['swag']
+    res['focus'] = giveMeSentiment(s)['focus']
     res['emotion'] = getEmotion(s)
     res['image'] = bing_search( res['focus'] ,'Image')
     return res
@@ -30,7 +27,9 @@ def twitter(s):
     res = dict()
     tweets = twit.top10Tweets( [s] )
     res['emotion'] = getEmotion(s)
-    res['tweets'] = tweets
+    res['tweets'] = list()
+    for tweet in tweets:
+        res['tweets'].append( (tweet, getEmotion(tweet),) )
     return res
 
 def bing(s): 
