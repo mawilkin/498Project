@@ -142,7 +142,7 @@ for words in emotionlist:
 
   training = inputsteeeeez[words]   # training is list of tweets for each emotion
   readfile = removePunc(str(training))
-  readfile = removeStopWords(readfile)
+  #readfile = removeStopWords(readfile)
 
 
   readfile = readfile.encode('utf-8').strip()
