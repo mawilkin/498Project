@@ -130,6 +130,7 @@ def getEmotion(query):
   complete = {}
   total = {}
   totalwords = 0
+  wordsperclass = {}
   count = 0
   for words in emotionlist:
     tempdic = {}
@@ -137,9 +138,12 @@ def getEmotion(query):
     training = emotionlist[count]
     count +=1
     test_set = []
+    wordsofclass = ''
     with open('tweetlists/' + training+".txt") as f:
         for line in f:
             test_set = line.split()
+            wordsofclass = wordsofclass + ' ' + line
+    wordsperclass[words] = wordsofclass
     totalwords = populate(total,test_set,totalwords)
 
   count = 0
@@ -148,7 +152,7 @@ def getEmotion(query):
     numwords=0
     training = emotionlist[count]
     count+=1
-    readfile = spacePeriod(training)
+    readfile = spacePeriod(wordsperclass[training])
     readfile = spaceCommaApos(readfile)
     readfile = removePunc(readfile)
     readfile = removeStopWords(readfile)
