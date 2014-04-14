@@ -11,6 +11,9 @@ function ajax(url, data, callback) {
 }
 
 function feelings() {
+    $('#results').css('opacity',0);
+    $('#twitter').css('opacity',0);
+    $('#bing').css('opacity',0);
     ajax('/feelings', document.search.query.value, function (obj) {
         twitter(obj['focus']);
         bing(obj['focus']);
@@ -27,8 +30,9 @@ function twitter(s) {
     ajax('/twitter', s, function (obj) {
         document.getElementById('twitterEmotion').innerHTML = obj['emotion'];
         console.log(obj);
+        $('#tweets').empty();
         obj['tweets'].forEach(function(elt) {
-            $('#tweetA').append('<p>'+elt+'</p>');
+            $('#tweets').append('<span class="tweet">'+elt[0]+'</span><span class="emotn">'+elt[1]+'</span>');
         });
         $('#twitter').animate({
             opacity: '1'
@@ -51,5 +55,6 @@ function bing(s) {
 }
 
 window.onload = function() {
-    console.log('loaded'); 
+
+
 };
