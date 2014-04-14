@@ -411,11 +411,11 @@ class sentstotweets:
     def top50Tweets(self):
         try:
             # sentiment list contains synonyms, return list only indexes to one sentiment?
-            sentimentList = ['#love OR #affection OR #devotion', '#enjoy OR #elation', 
+            sentimentList = ['#love OR #attached OR #devotion', '#happy OR #elated', 
                                 '#amused OR #excited OR #firedup', 
-                                '#content OR #grateful', '#sad OR #grief OR #heartbroken',
-                                '#angry OR #loathe', '#fear OR #scared OR #uneasy',
-                                '#humiliating OR #embarrassing OR #shame']
+                                '#blessed OR #grateful', '#sad OR #depressed OR #heartbroken',
+                                '#angry OR #mad OR #infuriated', '#afraid OR #scared OR #terrified',
+                                '#humiliating OR #embarrassing OR #ashamed']
 
             sentimentDic = {}
             tso = TwitterSearchOrder() 
