@@ -42,14 +42,11 @@ def removePunc(input):
     return pattern
 
 sys.stdout.encoding.encode('utf-8')
-emotionlist = ['#love OR #affection OR #devotion',
-'#enjoy OR #elation',
-'#amused OR #excited OR #firedup',
-'#content OR #grateful',
-'#sad OR #grief OR #heartbroken',
-'#angry OR #loathe',
-'#fear OR #scared OR #uneasy',
-'#humiliating OR #embarrassing OR #shame']
+emotionlist = ['#love OR #attached OR #devotion', '#happy OR #elated',
+                    '#amused OR #excited OR #firedup',
+                    '#blessed OR #grateful', '#sad OR #depressed OR #heartbroken',
+                    '#angry OR #mad OR #infuriated', '#afraid OR #scared OR #terrified',
+                    '#humiliating OR #embarrassing OR #ashamed']
 
 tweets = sentstotweets()
 inputsteeeeez = tweets.top50Tweets()
