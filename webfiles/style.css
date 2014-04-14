@@ -19,14 +19,6 @@ h1 {
     color: #2F3080;
 }
 
-#twitterData h3 {
-    margin-left: auto;
-    margin-right: auto;
-    display: table-inline;
-    vertical-align: top;
-    margin-bottom: 2%
-}
-
 #logo {
     height: auto;
     width: auto;
@@ -36,28 +28,12 @@ h1 {
     margin-left: 10px;
 }
 
-#resultImage {
-    margin-bottom: 2%;"
-    max-width: 35%;
-    max-height: 35%;
-}
-
-#resultLogo {
-    /*display: inline-table;*/
-    height: auto;
-    width: auto;
-    max-width: 220px;
-    max-height: 220px; 
-    margin-top: -10%;
-    margin-left: 25px;
-}
-
 h3 {
     width: 35%;
     margin: auto;
     font-family:  "Segoe UI Light", "Gill Sans Light", "Arial";
     font-weight: 8;
-    font-size: 25px;
+    font-size: 21px;
     color: #6A6BCE;
 }
 
@@ -83,12 +59,6 @@ h3 {
     margin-top: 5%;
 }
 
-#results h3 {
-    margin-top: -2%; 
-    margin-bottom: 1%; 
-    color: white;
-}
-
 #input {
     border-left: 15px solid #FFFFFF;
 }
@@ -97,13 +67,11 @@ h3 {
     width: 50%;
     height: 40px;
     text-align: center;
-    /*border-radius: 5px;*/
 }
 
 #button {
     margin-top:2.5%;
     color: #FFFFFF;
-    /*width: 80px;*/
     width: 5%;
     height: 4%;
     font-size: 150%;
@@ -129,19 +97,9 @@ h3 {
     background-image: linear-gradient(to bottom, #7E0FFF, #9174ed);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#7E0FFF, endColorstr=#9174ed);
 }
 
-#tweets {
-    background-color: #000000;
-    display: inline-table;
-    vertical-align: middle;
-    background-color: gray;
-    height: 16.75%;
-    width: 25%;
-    border-radius: 20px;
-    margin-left: 10%;
-}
-
-#feelings {
-    text-align: center;
+#firstEmotion {
+    color: white;
+    font-size: 25px;
 }
 
 #results {
@@ -153,11 +111,59 @@ h3 {
     opacity: 0;
 }
 
+#results h3 {
+    margin-top: -2%; 
+    margin-bottom: 1%; 
+    color: white;
+}
+
+#resultImage {
+    margin-bottom: 2%;"
+    max-width: 35%;
+    max-height: 35%;
+}
+
+#resultLogo {
+    height: auto;
+    width: auto;
+    max-width: 220px;
+    max-height: 220px; 
+    margin-top: -10%;
+    margin-left: 25px;
+}
+
 #twitter {
     border-left: 15px solid #55ACEE;
     margin-bottom: 5%;
     margin-top: 2%;
     opacity: 0;
+}
+
+#twitterData {
+    margin-left: auto;
+    margin-right: auto;
+    display: table-inline;
+    vertical-align: top;
+    margin-bottom: 2%
+}
+
+#twitterEmotion {
+    color: #2F3080;
+    font-size: 25px;
+    vertical-align: top;
+}
+
+#tweets {
+    background-color: #000000;
+    display: table-inline;
+    vertical-align: middle;
+    background-color: gray;
+    height: 40%;
+    width: 60%;
+    border-radius: 1px;
+    margin-left: 20%;
+    padding: 2.5%;
+    overflow: auto;
 }
 
 #bing {
@@ -174,14 +180,15 @@ h3 {
     max-height: 200px;
 }
 
-#firstEmotion {
-    color: white;
-    font-size: 25px;
+.tweet {
+    padding: 1%;
+    margin: auto;
+    width: 80%;
+    background-color: white;
+    border: white 1px solid;
+    margin-bottom: 10px;
 }
 
-#twitterEmotion {
-    color: #2F3080;
-    font-size: 25px;
-    vertical-align: top;
-}
+.emotn {
 
+}

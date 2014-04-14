@@ -32,7 +32,7 @@ function twitter(s) {
         console.log(obj);
         $('#tweets').empty();
         obj['tweets'].forEach(function(elt) {
-            $('#tweets').append('<span class="tweet">'+elt[0]+'</span><span class="emotn">'+elt[1]+'</span>');
+            $('#tweets').append('<div class="tweet"><span>'+elt[0]+'</span><br><br><span class="emotn">'+elt[1]+'</span></div>');
         });
         $('#twitter').animate({
             opacity: '1'
