@@ -4,7 +4,6 @@ from SocketServer import ThreadingMixIn
 from bing2URL import bing_search
 from linksToCorpus import URLtoCorpus
 from text2alchemy import giveMeSentiment
-from tweetsentiments import tweetsentiments
 from twitterizer import twitterizer
 import json
 from emotionClass import getEmotion
@@ -26,6 +25,7 @@ def twitter(s):
     print 'twitter module'
     res = dict()
     tweets = twit.top10Tweets( [s] )
+    s = ''.join(tweets)
     res['emotion'] = getEmotion(s)
     res['tweets'] = list()
     for tweet in tweets:
