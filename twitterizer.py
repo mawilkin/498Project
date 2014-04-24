@@ -1,4 +1,9 @@
-# https://github.com/ckoepp/TwitterSearch
+# TEAM #SENTIMENT - EECS 498 - Information Retrieval
+# Wrapper for Twitter API
+# Used to produce set of tweets, based on query, for main server
+# Modified from https://github.com/ckoepp/TwitterSearch, to fit in a single file
+#
+
 import requests
 from requests_oauthlib import OAuth1
 

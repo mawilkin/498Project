@@ -1,3 +1,9 @@
+# TEAM #SENTIMENT - EECS 498 - Information Retrieval
+# Interface to BING api
+# Converts search query to list of URLs 
+# Can be called with either web search or image search
+#
+
 import urllib
 import urllib2
 import json

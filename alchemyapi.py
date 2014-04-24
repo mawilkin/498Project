@@ -1,3 +1,7 @@
+# TEAM #SENTIMENT - EECS 498 - Information Retrieval
+# Interface for alchemy API - https://github.com/AlchemyAPI/alchemyapi_python
+#
+
 #!/usr/bin/env python
 
 #	Copyright 2013 AlchemyAPI

@@ -1,3 +1,10 @@
+# TEAM #SENTIMENT - EECS 498 - Information Retrieval
+# Main web server for the project. 
+# Used to serve up the interface and act as data controller for other modules.
+#
+# Web interface provided as JS and CSS in /webfiles
+# 
+
 from BaseHTTPServer import HTTPServer
 from SimpleHTTPServer import SimpleHTTPRequestHandler
 from SocketServer import ThreadingMixIn

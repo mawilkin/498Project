@@ -1,5 +1,8 @@
 #!/usr/bin/python
-#TEAM#SENTIMENT
+# TEAM #SENTIMENT - EECS 498 - Information Retrieval
+# Converts a set of links to a single document corpus. 
+# Used to take set of links from bing to produce a single document to be sent to the alchemy API for sentiment analysis.
+#
 
 from bs4 import BeautifulSoup
 import urllib2

@@ -1,5 +1,6 @@
-#TEAM
-#SENTIMENT
+# TEAM #SENTIMENT - EECS 498 - Information Retrieval
+# Wrapper to alchemy API interface, used to input a query and process results presented by Alchemy
+#
 
 from __future__ import print_function
 from alchemyapi import AlchemyAPI

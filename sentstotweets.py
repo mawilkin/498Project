@@ -1,3 +1,8 @@
+# TEAM #SENTIMENT - EECS 498 - Information Retrieval
+# Used in building the document set of tweets in 'addTweetsToTraining.py'
+# specifically used to interface with Twitter API
+#
+
 # https://github.com/ckoepp/TwitterSearch
 import requests
 from requests_oauthlib import OAuth1
